@@ -1,5 +1,5 @@
 <h1 class="code-line" data-line-start=0 data-line-end=1 ><a id="CoomerpartyScraper_0"></a>Coomer.party-Scraper</h1>
-<p class="has-line-data" data-line-start="2" data-line-end="3">coom.party scraper is exactly what it sounds like. You get the url of a creator from the website, and then toggle on or off video downloads</p>
+<p class="has-line-data" data-line-start="2" data-line-end="3">coomer.party scraper is exactly what it sounds like. You get the url of a creator from the website, and then toggle on or off video downloads</p>
 <ul>
 <li class="has-line-data" data-line-start="4" data-line-end="5">Easy Commands</li>
 <li class="has-line-data" data-line-start="5" data-line-end="6">Two Steps</li>
