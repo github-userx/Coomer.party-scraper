@@ -1,6 +1,9 @@
 from bs4 import BeautifulSoup
+from more_itertools import last
 import requests 
 import time
+
+from sqlalchemy import null
     
 scrapeVideos = False
 
@@ -73,7 +76,8 @@ def ScanningPosts(url):
         lastPage = str(link).split("=")[-1]
         print("Successfully Calculated Amount of Pages as "+str((int(lastPage)/25)+1))
     except:
-        print("Error Occured: Likely DDos Protection, wait a couple minutes then try again. (Or use a VPN)")
+        lastPage = 1
+        print("Successfully Calculated Amount of Pages as 1")
 
     #Finds all Entry links on current page
     def fetchPagesEntryLinks():
