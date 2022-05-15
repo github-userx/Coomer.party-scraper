@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 from more_itertools import last
 import requests 
 import time
+import os
 
 from sqlalchemy import null
     
@@ -19,7 +20,7 @@ def coom():
         #find the img links
         try:
             postfiles = postpage.find("div", class_="post__files")
-            images = postfiles.find_all("img")
+            images = postfiles.find_all("a")
         except:
             print("\nNo images found in this entry\n")
 
@@ -48,13 +49,13 @@ def coom():
         #save images to disk
         for image in images:
             try:
-                image_src = image["src"]
+                image_src = image["href"]
                 print(image_src)
             except:
                 print("Error in ripping an image\n")
                 continue
             img_data = requests.get("https://www.coomer.party"+image_src).content
-            with open(str(number)+'.jpg', 'wb') as handler:
+            with open(f'{file_path}/{str(number)}.jpg', 'wb') as handler:
                 handler.write(img_data)
             number += 1
     print("Cooming has finished, enjoy your files!")
@@ -122,5 +123,10 @@ try:
     coom()
 except:
     url = input("Please Enter URL of creator from coomper.party (Ensure no text exists after the creator's name, in the link)\nURL: ")
+    file_path = input('Please Enter the FILE PATH where you want to save the elements\nFILE PATH: ')
+    if os.path.isdir(file_path):
+        pass
+    else:
+        os.mkdir(file_path)
     ScanningPosts(url)
 
